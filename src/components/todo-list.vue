@@ -3,7 +3,7 @@
       <div class="holder">
   
         <form @submit.prevent="addTodo">
-        <input type="text" placeholder="Enter your items..." v-model="item">
+        <input type="text" placeholder="Enter your List..." v-model="item">
         </form>
         <ul>
           <li v-for="(data, index) in Items" :key="index">{{ data.item }}</li>
@@ -20,11 +20,7 @@
     data() {
       return {
         item:'',
-        Items:[
-          {"item":"Make Cake"},
-          {"item":"Buy a TV"},
-          {"item":"Playing football"}
-        ]
+        Items:[]
       };
     },
     methods: {
