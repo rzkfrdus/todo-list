@@ -6,7 +6,9 @@
         <input type="text" placeholder="Enter your List..." v-model="item">
         </form>
         <ul>
-          <li v-for="(data, index) in Items" :key="index">{{ data.item }}</li>
+          <transition-group enter-active-class="animate__animated animate__fadeInUp" > 
+            <li v-for="(data, index) in Items" :key="index">{{ data.item }}</li>
+          </transition-group>
         </ul>
   
         <p>These are list for you to do</p>
@@ -34,6 +36,7 @@
   
   <!-- Add "scoped" attribute to limit CSS to this component only -->
   <style scoped>
+  @import 'animate.css';
   
   .holder {
     background-color: #fff;
