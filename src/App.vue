@@ -46,7 +46,7 @@ nav a {
   text-decoration: none;
   background: #fff;
   border-radius: 3px;
-  color: rgb(0, 110, 255);
+  color:darkseagreen;
   font-weight: bold;
   margin-right: 15px;
 }

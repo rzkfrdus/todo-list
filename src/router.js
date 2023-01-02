@@ -13,6 +13,11 @@ export default new Router({
           component: Todo
         },
         {
+          path: '/about/:nama',
+          name: 'about',
+          component: About
+        },
+        {
           path: '/about',
           name: 'about',
           component: About
