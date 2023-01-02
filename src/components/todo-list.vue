@@ -1,80 +1,80 @@
 <template>
-    <div class="hello">
-      <div class="holder">
-  
-        <form @submit.prevent="addTodo">
-        <input type="text" placeholder="Enter your List..." v-model="item">
-        </form>
-        <ul>
-          <transition-group enter-active-class="animate__animated animate__fadeInUp" > 
-            <li v-for="(data, index) in Items" :key="index">{{ data.item }}</li>
-          </transition-group>
-        </ul>
-  
-        <p>These are list for you to do</p>
-      </div>
+  <div class="hello">
+    <div class="holder">
+      <form @submit.prevent="addTodo">
+        <input type="text" placeholder="Enter your List..." v-model="item" />
+      </form>
+      <ul>
+        <transition-group
+          enter-active-class="animate__animated animate__fadeInUp"
+        >
+          <li v-for="(data, index) in Items" :key="index">{{ data.item }}</li>
+        </transition-group>
+      </ul>
+
+      <p>These are list for you to do</p>
     </div>
-  </template>
+  </div>
+</template>
   
   <script>
-  export default {
-    name: "testing-component",
-    data() {
-      return {
-        item:'',
-        Items:[]
-      };
+export default {
+  name: "todo-list",
+  data() {
+    return {
+      item: "",
+      Items: [],
+    };
+  },
+  methods: {
+    addTodo() {
+      this.Items.push({ item: this.item });
+      this.item = "";
     },
-    methods: {
-      addTodo() {
-        this.Items.push({item: this.item})
-        this.item = '';
-      }
-    }
-  };
-  </script>
+  },
+};
+</script>
   
   <!-- Add "scoped" attribute to limit CSS to this component only -->
   <style scoped>
-  @import 'animate.css';
-  
-  .holder {
-    background-color: #fff;
-  }
-  
-  ul {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-  }
-  
-  ul li {
-    padding: 20px;
-    font-size: 1.3em;
-    background-color: deeppink;
-    border-left: 5px solid #3eb3f6;
-    margin-bottom: 2px;
-    color: white;
-  }
-  
-  p {
-    text-align: center;
-    padding: 30px 0;
-    color: gray;
-  }
-  
-  .container {
-    box-shadow: 0px 0px 40px lightgray;
-  }
-  
-  input {
-    width: calc(100% - 40px);
-    border: 0;
-    padding: 20px;
-    font-size: 1.3em;
-    background-color: #323333;
-    color: lightblue;
-  }
-  
-  </style>
+@import "animate.css";
+
+.holder {
+  background-color: #fff;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+ul li {
+  padding: 20px;
+  font-size: 1.3em;
+  background-color: deeppink;
+  border-left: 5px solid #3eb3f6;
+  margin-bottom: 2px;
+  color: white;
+}
+
+p {
+  text-align: center;
+  padding: 30px 0;
+  color: gray;
+}
+
+.container {
+  box-shadow: 0px 0px 40px lightgray;
+}
+
+input {
+  width: calc(100% - 40px);
+  border: 0;
+  padding: 20px;
+  font-size: 1.3em;
+  background-color: #323333;
+  color: lightblue;
+}
+</style>
   
