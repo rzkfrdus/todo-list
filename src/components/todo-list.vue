@@ -7,8 +7,12 @@
       <ul>
         <transition-group
           enter-active-class="animate__animated animate__fadeInUp"
+          leave-active-class="animate__animated animate__fadeOutDown"
         >
-          <li v-for="(data, index) in Items" :key="index">{{ data.item }}</li>
+          <li v-for="(data, index) in Items" :key="index">
+            {{ data.item }}
+            <i class="fa fa-check-circle" v-on:click="check(index)"></i>
+          </li>
         </transition-group>
       </ul>
 
@@ -31,6 +35,9 @@ export default {
       this.Items.push({ item: this.item });
       this.item = "";
     },
+    check(id) {
+      this.Items.splice(id, 1);
+    },
   },
 };
 </script>
@@ -38,6 +45,7 @@ export default {
   <!-- Add "scoped" attribute to limit CSS to this component only -->
   <style scoped>
 @import "animate.css";
+@import "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
 
 .holder {
   background-color: #fff;
@@ -75,6 +83,11 @@ input {
   font-size: 1.3em;
   background-color: #323333;
   color: lightblue;
+}
+
+i {
+  float: right;
+  cursor: pointer;
 }
 </style>
   
