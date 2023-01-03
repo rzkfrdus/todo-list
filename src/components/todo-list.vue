@@ -2,7 +2,7 @@
   <div class="hello">
     <div class="container">
       <form @submit.prevent="addTodo">
-        <input type="text" placeholder="Enter your List..." v-model="item" />
+        <input type="text" placeholder="Enter your List..." v-model="list" />
       </form>
       <ul>
         <transition-group
@@ -10,12 +10,11 @@
           leave-active-class="animate__animated animate__fadeOutDown"
         >
           <li v-for="(data, index) in Items" :key="index">
-            {{ data.item }}
+            {{ data.list }}
             <i class="fa fa-check-circle" v-on:click="check(index)"></i>
           </li>
         </transition-group>
       </ul>
-
       <p>These are list for you to do</p>
     </div>
   </div>
@@ -26,9 +25,17 @@ export default {
   name: "todo-list",
   data() {
     return {
-      item: "",
       Items: [],
     };
+  },
+  created() {
+    this.Items = [
+      {
+        index: 1,
+        list: 'Playing Guitar',
+        reminder: true
+      }
+    ]
   },
   methods: {
     addTodo() {
@@ -47,10 +54,6 @@ export default {
 @import "animate.css";
 @import "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css";
 
-.holder {
-  background-color: #fff;
-}
-
 ul {
   margin: 0;
   padding: 0;
@@ -60,10 +63,10 @@ ul {
 ul li {
   padding: 20px;
   font-size: 1.3em;
-  background-color: deeppink;
+  background-color: aliceblue;
   border-left: 5px solid #3eb3f6;
   margin-bottom: 2px;
-  color: white;
+  color: black;
 }
 
 p {
