@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <div class="holder">
+    <div class="container">
       <form @submit.prevent="addTodo">
         <input type="text" placeholder="Enter your List..." v-model="item" />
       </form>

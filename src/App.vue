@@ -1,7 +1,9 @@
 <template>
   <div id="app">
+    <header-app />
     <nav>
       <router-link to="/">Home</router-link>
+      <router-link to="/todolist">Todo</router-link>
       <router-link to="/about">About</router-link>
     </nav>
     <router-view />
@@ -10,12 +12,14 @@
 
 <script>
 import Todo from "./components/todo-list.vue";
+import headerApp from "./components/header-app.vue";
 
 export default {
   name: "app",
   components: {
+    headerApp,
     // eslint-disable-next-line vue/no-unused-components
-    Todo
+    Todo,
   },
 };
 </script>
@@ -24,19 +28,20 @@ export default {
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,700");
 
 body {
-  background-color: #EEEEEE;
-  font-family: 'Montserrat', sans-serif;
+  background-color: #eeeeee;
+  font-family: "Montserrat", sans-serif;
   display: grid;
   grid-template-rows: auto;
   justify-items: center;
   padding-top: 50px;
 }
-body, html {
+body,
+html {
   margin: 0;
   height: 100%;
 }
 #app {
-    width: 50%;
+  width: 50%;
 }
 nav {
   padding: 20px 20px 20px 0;
@@ -46,7 +51,7 @@ nav a {
   text-decoration: none;
   background: #fff;
   border-radius: 3px;
-  color:darkseagreen;
+  color: darkseagreen;
   font-weight: bold;
   margin-right: 15px;
 }
