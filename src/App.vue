@@ -7,17 +7,20 @@
       <router-link to="/about">About</router-link>
     </nav>
     <router-view />
+    <footer-app />
   </div>
 </template>
 
 <script>
-import Todo from "./components/todo-list.vue";
+import Todo from "./components/todo-lists.vue";
 import headerApp from "./components/header-app.vue";
+import FooterApp from './components/footer-app.vue'
 
 export default {
   name: "app",
   components: {
     headerApp,
+    FooterApp,
     // eslint-disable-next-line vue/no-unused-components
     Todo,
   },

@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Todo from './components/todo-list.vue'
+import Todo from './components/todo-lists.vue'
 import About from './components/about-app.vue'
 import Home from './components/home-page.vue'
 
