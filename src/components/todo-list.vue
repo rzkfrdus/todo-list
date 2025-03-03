@@ -9,10 +9,10 @@
           enter-active-class="animate__animated animate__fadeInUp"
           leave-active-class="animate__animated animate__fadeOutDown"
         >
-          <li v-for="(data, index) in Items" :key="index">
-            {{ data.list }}
-            <i class="fa fa-check-circle" v-on:click="check(index)"></i>
-          </li>
+        <li v-for="data in Items" :key="data.id">
+          {{ data.list }}
+        <i class="fa fa-check-circle" v-on:click="check(data.id)"></i>
+        </li>
         </transition-group>
       </ul>
       <p>These are list for you to do</p>
@@ -26,24 +26,35 @@ export default {
   data() {
     return {
       Items: [],
+      List:"",
     };
   },
-  created() {
-    this.Items = [
-      {
-        index: 1,
-        list: 'Playing Guitar',
-        reminder: true
-      }
-    ]
-  },
+  // created() {
+  //   this.Items = [
+  //     {
+  //       index: 1,
+  //       list: 'Playing Guitar',
+  //       reminder: true
+  //     }
+  //   ]
+  // },
   methods: {
     addTodo() {
-      this.Items.push({ item: this.item });
-      this.item = "";
+      if (this.list.trim()) {
+        const newItem = {
+          id: Date.now(),  // ID unik berdasarkan timestamp
+          list: this.list,
+          reminder: false,
+        };
+        this.Items.push(newItem);
+        this.list = ""; // Reset input setelah ditambahkan
+      }
     },
     check(id) {
-      this.Items.splice(id, 1);
+      const index = this.Items.findIndex(item => item.id === id);
+      if (index !== -1) {
+        this.Items.splice(index, 1);
+      }
     },
   },
 };
